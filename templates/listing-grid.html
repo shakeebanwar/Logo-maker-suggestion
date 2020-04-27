@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="{% static ''%}http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}libraries/owl.carousel/owl.carousel.css" rel="stylesheet" type="text/css" >
+    <link href="{% static ''%}libraries/colorbox/example1/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="{% static ''%}libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}css/superlist.css" rel="stylesheet" type="text/css" >
+
+    <link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{% static ''%}favicon.png">
+
+    <title>Logo Desinging</title>
+     <style type="text/css">
+        button.btn.btn-primary.pull-left
+        {
+            margin-top: 1px;
+            width: 87%;
+            padding: 10px;
+            border-radius: 9px;
+        }
+        .filter 
+        {
+            background-color: transparent;
+            margin: 0px 0px 40px 0px;
+            padding: 20px;
+            border: none;
+        }
+    </style>
+</head>
+
+
+<body class="">
+
+<div class="page-wrapper">
+    
+    <header class="header">
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-logo">
+                    <a href="https://logodesigning.org/">
+                         <img src="{% static 'img/logo.png' %}" alt="Logo">
+                        <span>Logo Desiging</span>
+                    </a>
+                </div><!-- /.header-logo -->
+
+                <div class="header-content">
+                    <div class="header-bottom">
+                        <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+     <li >
+        <a href="https://logodesigning.org/">Home</a>
+    </li>
+
+    <li class="">
+        <a href="https://logodesigning.org/logo-ideas">Logo Ideas</a>
+    </li>
+    <li >
+        <a href="https://logodesigning.org/pricing"> Pricing </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/order-now"> Order now </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/about"> About </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/faq"> Faq </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/contact-us"> Contact us </a>
+    </li>
+</ul>
+
+<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav-primary">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+</button>
+
+                    </div><!-- /.header-bottom -->
+                </div><!-- /.header-content -->
+            </div><!-- /.header-inner -->
+        </div><!-- /.container -->
+    </div><!-- /.header-wrapper -->
+</header><!-- /.header -->
+
+
+
+
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                
+                     <form class="filter" method="post" action="/search">
+                    {% csrf_token %}
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <input type="text" placeholder="Keyword" class="form-control" name="search">
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+       <!--  <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <select class="form-control" title="Select Location">
+                    <option>Bronx</option>
+                    <option>Brooklyn</option>
+                    <option>Manhattan</option>
+                    <option>Staten Island</option>
+                    <option>Queens</option>
+                </select>
+            </div> --><!-- /.form-group -->
+        <!-- </div>/.col-* -->
+
+        
+         <div class="col-sm-12 col-md-4">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary pull-left"> Search Result</button>
+          </div>
+        </div>
+    </div><!-- /.row -->
+</form>
+
+<div class="cards-simple-wrapper">
+    <div class="row">
+    {% for i in data  %}
+    
+
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="/upload/{{i.img}}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="/detail/{{i.sno}}" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">{{i.title}}</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+                {% endfor %}
+
+        
+    </div><!-- /.row -->
+</div><!-- /.cards-simple-wrapper -->
+
+{% comment %} <div class="pager">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">5</a></li>
+        <li class="active"><a>6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div><!-- /.pagination --> {% endcomment %}
+
+
+                </div><!-- /.content -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+
+    <footer class="footer">
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-left">
+                &copy; 2020 All rights reserved. Created by <a href="#">HNH TECH SOLUTION</a>.
+            </div><!-- /.footer-bottom-left -->
+
+            <div class="footer-bottom-right">
+                <ul class="nav nav-pills">
+                     <li >
+        <a href="https://logodesigning.org/">Home</a>
+    </li>
+
+    <li class="">
+        <a href="https://logodesigning.org/logo-ideas">Logo Ideas</a>
+    </li>
+    <li >
+        <a href="https://logodesigning.org/pricing"> Pricing </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/order-now"> Order now </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/about"> About </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/faq"> Faq </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/contact-us"> Contact us </a>
+    </li>
+                </ul><!-- /.nav -->
+            </div><!-- /.footer-bottom-right -->
+        </div><!-- /.container -->
+    </div>
+</footer><!-- /.footer -->
+
+</div><!-- /.page-wrapper -->
+
+<script src="{% static ''%}js/jquery.js" type="text/javascript"></script>
+<script src="{% static ''%}js/map.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/collapse.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/carousel.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/transition.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/tab.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/alert.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/flot/jquery.flot.spline.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+
+<script src="{% static ''%}http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing" type="text/javascript"></script>
+
+<script type="text/javascript" src="{% static ''%}libraries/jquery-google-map/infobox.js"></script>
+<script type="text/javascript" src="{% static ''%}libraries/jquery-google-map/markerclusterer.js"></script>
+<script type="text/javascript" src="{% static ''%}libraries/jquery-google-map/jquery-google-map.js"></script>
+
+<script type="text/javascript" src="{% static ''%}libraries/owl.carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="{% static ''%}libraries/bootstrap-fileinput/fileinput.min.js"></script>
+
+<script src="{% static ''%}js/superlist.js" type="text/javascript"></script>
+
+</body>
+</html>

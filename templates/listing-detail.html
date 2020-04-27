@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="{%static ''%}http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <link href="{%static ''%}libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{%static ''%}libraries/owl.carousel/assets/owl.carousel.css" rel="stylesheet" type="text/css" >
+    <link href="{%static ''%}libraries/colorbox/example1/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="{%static ''%}libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="{%static ''%}libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+    <link href="{%static ''%}css/superlist.css" rel="stylesheet" type="text/css" >
+
+    <link rel="shortcut icon" type="image/x-icon" href="{%static ''%}favicon.png">
+
+    <title>Logo Desinging</title>
+</head>
+
+
+<body class="">
+
+<div class="page-wrapper">
+    
+    <header class="header">
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-logo">
+                    <a href="https://logodesigning.org/">
+                        <img src="{% static 'img/logo.png'%}" alt="Logo">
+                        <span>Logo Desinging</span>
+                    </a>
+                </div><!-- /.header-logo -->
+
+                <div class="header-content">
+                    <div class="header-bottom">
+                        <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+    <li >
+        <a href="https://logodesigning.org/">Home</a>
+    </li>
+
+    <li class="">
+        <a href="https://logodesigning.org/logo-ideas">Logo Ideas</a>
+    </li>
+    <li >
+        <a href="https://logodesigning.org/pricing"> Pricing </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/order-now"> Order now </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/about"> About </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/faq"> Faq </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/contact-us"> Contact us </a>
+    </li>
+</ul>
+
+<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav-primary">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+</button>
+
+                    </div><!-- /.header-bottom -->
+                </div><!-- /.header-content -->
+            </div><!-- /.header-inner -->
+        </div><!-- /.container -->
+    </div><!-- /.header-wrapper -->
+</header><!-- /.header -->
+
+
+
+
+
+    <div class="main">
+        <div class="main-inner">
+            <div class="content">
+<div class="container">
+    <div class="row detail-content">
+    <div class="col-sm-7">
+        <div class="detail-gallery1">
+            <div class="detail-gallery-preview">
+                <a href="{% static 'img/tmp/gallery-1.jpg'%}">
+                {% for i in data %}
+                    <img src="/upload/{{i.img}}">
+                 
+                </a>
+            </div>
+</div><!-- /.detail-gallery -->
+    </div><!-- /.col-sm-7 -->
+
+    <div class="col-sm-5">
+        <h2>Booking Form</h2>
+
+        <div class="detail-enquire-form background-white p20">
+            <form method="post" action="/data">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="hidden" name="logoid" value={{i.sno}}>
+            
+                    <input type="text" class="form-control" name="name" id="">
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <label for="">Email <span class="required">*</span></label>
+                   
+                    <input type="email" class="form-control" name="email" id="" required>
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <label for="">Contact Number <span class="required">*</span></label>
+                    <input type="Number" class="form-control " name="number" id="" required>
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <label for="">Message <span class="required">*</span></label>
+                    <textarea class="form-control" name="message" id="" rows="5" required></textarea>
+                </div><!-- /.form-group -->
+
+                <p>Required fields are marked <span class="required">*</span></p>
+
+                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-paper-plane"></i>Send Message</button>
+            </form>
+               {% endfor %}
+        </div><!-- /.detail-enquire-form -->
+
+        <div class="detail-payments">
+            <h3>Accepted Payments</h3>
+            
+            <ul>
+                <li><a href="#"><i class="fa fa-paypal"></i></a></li>
+    			<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+    			<li><a href="#"><i class="fa fa-cc-stripe"></i></a></li>
+                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+    		</ul>
+        </div>
+    </div><!-- /.col-sm-5 -->
+</div><!-- /.row -->
+
+</div><!-- /.container -->
+
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+
+    <footer class="footer">
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-left">
+                &copy; 2015 All rights reserved. Created by <a href="#">HNH Tech</a>.
+            </div><!-- /.footer-bottom-left -->
+              <div class="footer-bottom-right">
+                <ul class="nav nav-pills">
+                     <li >
+        <a href="https://logodesigning.org/">Home</a>
+    </li>
+
+    <li class="">
+        <a href="https://logodesigning.org/logo-ideas">Logo Ideas</a>
+    </li>
+    <li >
+        <a href="https://logodesigning.org/pricing"> Pricing </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/order-now"> Order now </a>
+    </li>
+
+    <li >
+        <a href="https://logodesigning.org/about"> About </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/faq"> Faq </a>
+    </li>
+    <li>
+        <a href="https://logodesigning.org/contact-us"> Contact us </a>
+    </li>
+                </ul><!-- /.nav -->
+            </div><!-- /.footer-bottom-right -->
+        </div><!-- /.container -->
+    </div>
+</footer><!-- /.footer -->
+
+</div><!-- /.page-wrapper -->
+
+<script src="{%static ''%}js/jquery.js" type="text/javascript"></script>
+<script src="{%static ''%}js/map.js" type="text/javascript"></script>
+
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/collapse.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/carousel.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/transition.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/tab.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/bootstrap-sass/javascripts/bootstrap/alert.js" type="text/javascript"></script>
+
+<script src="{%static ''%}libraries/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+<script src="{%static ''%}libraries/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="{%static ''%}libraries/flot/jquery.flot.spline.js" type="text/javascript"></script>
+
+<script src="{%static ''%}libraries/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+
+<script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing" type="text/javascript"></script>
+
+<script type="text/javascript" src="{%static ''%}libraries/jquery-google-map/infobox.js"></script>
+<script type="text/javascript" src="{%static ''%}libraries/jquery-google-map/markerclusterer.js"></script>
+<script type="text/javascript" src="{%static ''%}libraries/jquery-google-map/jquery-google-map.js"></script>
+
+<script type="text/javascript" src="{%static ''%}libraries/owl.carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="{%static ''%}libraries/bootstrap-fileinput/fileinput.min.js"></script>
+
+<script src="{%static ''%}js/superlist.js" type="text/javascript"></script>
+
+</body>
+
+<!-- Mirrored from preview.byaviators.com/template/superlist/listing-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Mar 2020 10:17:31 GMT -->
+</html>
+<script>
+{% if thank %}
+alert('your response is recorded')
+ window.location.href = "/";
+
+
+{% endif %}
+
+
+</script>

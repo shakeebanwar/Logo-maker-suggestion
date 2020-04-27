@@ -1,0 +1,20 @@
+{% load static %}
+<form method="POST" action="/generate-image/" id="GenImgForm">
+    <input type="text" name="x-coordinate" />
+    <input type="text" name="y-coordinate" />
+</form>
+
+<!-- Make an empty div where the returned image will be shown -->
+<div id="ShowImage"><img src="{% static '/img/tmp/slider-large-3.jpg' %}" alt=""></div>
+
+<script type="{% static ''%}text/javascript" src="{% static ''%}/static/path/to/jquery.js"></script>
+<script type="{% static ''%}text/javascript" src="{% static ''%}/static/path/to/jquery.form.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var options = { 
+            target: '#ShowImage',
+        };        
+        $("#GenImgForm").ajaxForm(options);
+            return false;
+        });
+</script>

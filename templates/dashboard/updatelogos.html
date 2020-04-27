@@ -1,0 +1,61 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block sitetitle %}
+Logo Maker Orders
+{% endblock  %}
+
+{% block pagetitle %}
+ <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Logo Maker Logos</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Logos</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+
+{% endblock  %}
+{% comment %} home boady start {% endcomment %}
+{% block body %}
+  <!-- ============================================================== -->
+  <div class="row">
+  <div class="col-md-3">
+ 
+  </div>
+  <div class="col-md-5 ">
+        <form action="{% url 'updatelogodata' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            <input type="hidden" name="uid" value="{{data.sno}}">
+          
+              <label >Title</label>
+              <input type="text" name="title" value="{{data.title}}" placeholder="title" class="form-control" required>
+          
+              <label >Category</label>
+              <select name="category" class=" form-control" required>
+                  <option value="{{data.category.cid}}">{{data.category}}</option>
+                  {% for cat in category %}
+                  <option value="{{cat.cid}}">{{cat.cname}}</option>
+                    
+                  {% endfor %}
+              </select>
+              <label for="">image</label>
+              <input type="file" name="image" class="form-control" required>
+               image
+      
+        <button type="submit" class="btn btn-primary" >update Logo</button>
+        </from>
+        </div>
+        <div class="col-md-3">
+        <img src="/upload/{{data.img}}" alt="{{data.title}}" width="200px" height="200px">
+                                 
+        </div>
+        </div>
+    {% comment %} view Model end {% endcomment %}
+{% endblock  %}
+{% comment %} home boady end {% endcomment %}

@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="{% static ''%}http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}libraries/owl.carousel/assets/owl.carousel.css" rel="stylesheet" type="text/css" >
+    <link href="{% static ''%}libraries/colorbox/example1/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="{% static ''%}libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static ''%}css/superlist.css" rel="stylesheet" type="text/css" >
+
+    <link rel="shortcut icon" type="{% static 'image/x-icon' %}" href="{% static ''%}favicon.png">
+
+    <title>Logo Desinging</title>
+</head>
+
+
+<body class="">
+
+<div class="page-wrapper">
+    
+    <div class="main" style="background-image: url({% static '/img/tmp/slide.jpg' %});background-size: cover;background-repeat: no-repeat;">
+        <div class="main-inner">
+            <div class="content">
+                <div class="mt-150">
+    <div class="hero-image">
+    <div class="hero-image-inner">
+        <div class="hero-image-form-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4 col-lg-4 col-lg-offset-4">
+                        <form method="post" action="/">
+                        {% csrf_token %}
+                            <h2 class="text-center">Logo Designing</h2>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Enter Your Logo Name" name="logoname" required>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+
+                       
+                   
+                             <select class="form-control" title="Select Your Industry" name="cat" required>
+                                        {% for i in data  %}
+                                    <option>{{i.cname}}</option>
+                                        {% endfor %}
+                                </select>
+                         
+                            </div><!-- /.form-group -->
+
+                            <div class=" form-group">
+                              <input type="text" class="form-control" placeholder="Enter Your Company Name (Optional)" name="companyname" required>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Min. Price" name="price" required>
+                            </div><!-- /.form-group -->
+                   
+                            <button type="submit" class="btn btn-primary btn-block">Create My Logo</button>
+                         
+                        </form>
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.hero-image-form-wrapper -->
+    </div><!-- /.hero-image-inner -->
+</div><!-- /.hero-image -->
+
+</div>
+</div><!-- /.page-wrapper -->
+
+<script src="{% static ''%}js/jquery.js" type="text/javascript"></script>
+<script src="{% static ''%}js/map.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/collapse.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/carousel.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/transition.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/tab.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/bootstrap-sass/javascripts/bootstrap/alert.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="{% static ''%}libraries/flot/jquery.flot.spline.js" type="text/javascript"></script>
+
+<script src="{% static ''%}libraries/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+
+<script src="{% static ''%}http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing" type="text/javascript"></script>
+
+<script type="text/javascript" src="{% static ''%}libraries/jquery-google-map/infobox.js"></script>
+<script type="text/javascript" src="{% static ''%}libraries/jquery-google-map/markerclusterer.js"></script>
+<script type="text/javascript" src="{% static ''%}libraries/jquery-google-map/jquery-google-map.js"></script>
+
+<script type="text/javascript" src="{% static ''%}libraries/owl.carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="{% static ''%}libraries/bootstrap-fileinput/fileinput.min.js"></script>
+
+<script src="{% static ''%}js/superlist.js" type="text/javascript"></script>
+
+</body>
+
+<!-- Mirrored from preview.byaviators.com/template/superlist/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Mar 2020 10:14:00 GMT -->
+</html>
+<script>
+{% if thank %}
+alert('your response is recorded')
+ window.location.href = "/";
+
+
+{% endif %}
+
+
+</script>
